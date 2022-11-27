@@ -1,14 +1,9 @@
-import redis
 import os
 import io
-from dotenv import load_dotenv
 from flask import Flask, Response
-import qrcode
 from flask import request
 import json
-from flask import send_file
-
-from connect_iq_operations import get_app_download_info
+from ciqreviews import get_app_download_info
 from datetime import datetime
 
 
