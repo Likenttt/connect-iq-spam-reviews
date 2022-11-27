@@ -1,1 +1,4 @@
-scripts/__pycache__
+ciqreviews/__pycache__
+ciqreviews/build
+ciqreviews/dist
+ciqreviews/ciqreviews.egg-info
