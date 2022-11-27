@@ -129,10 +129,10 @@ def analyse_reviews_data(reviews, app_name):
     for k, v in converted_comment_date_dict.items():
         if int(v) >= 3:
             hasMoreThan3CommentsPerday = True
-            print("{}  \t产生了:{}条评论".format(k.split('|')[0], v))
+            print("- {}  \t产生了:{}条评论".format(k.split('|')[0], v))
     if not hasMoreThan3CommentsPerday:
-        print('应用:「{}」竟然没有一天内超过三条评论'.format(app_name))
-        print('APP:「{}」No Day Reviews more than 3'.format(app_name))
+        print('- 应用:「{}」竟然没有一天内超过三条评论'.format(app_name))
+        print('- APP:「{}」No Day Reviews more than 3'.format(app_name))
 
     hasMoreThan3CommentsPerday = False
 
@@ -142,11 +142,11 @@ def analyse_reviews_data(reviews, app_name):
     for k, v in converted_user_review_times_dict.items():
         if int(v) > 3:
             hasMoreThan3CommentsPerday = True
-            print("「{}」\t累计评价 \t「{}」次 ".format(k, v))
+            print("- 「{}」\t累计评价 \t「{}」次 ".format(k, v))
 
     if not hasMoreThan3CommentsPerday:
-        print('应用:「{}」没有一位粉丝评论超过3次'.format(app_name))
-        print('APP:「{}」No User Reviews more than 3 Times'.format(app_name))
+        print('- 应用:「{}」没有一位粉丝评论超过3次'.format(app_name))
+        print('- APP:「{}」No User Reviews more than 3 Times'.format(app_name))
     hasMoreThan3CommentsPerday = False
 
     print('-----------------------应用:「{}」重复垃圾评论出现次数排行榜,真有你的-----------------------------'.format(app_name))
@@ -155,10 +155,10 @@ def analyse_reviews_data(reviews, app_name):
     for k, v in converted_sorted_comment_dict.items():
         if int(v) > 3:
             hasMoreThan3CommentsPerday = True
-            print("出现「{}」次的评论为:「{}」".format(v, k))
+            print("- 出现「{}」次的评论为:「{}」".format(v, k))
     if not hasMoreThan3CommentsPerday:
-        print('应用:「{}」没有重复垃圾评论'.format(app_name))
-        print('APP:「{}」No Duplicate Reviews'.format(app_name))
+        print('- 应用:「{}」没有重复垃圾评论'.format(app_name))
+        print('- APP:「{}」No Duplicate Reviews'.format(app_name))
 
 
 def get_single_page_review_json_using_bs4(html_text):
