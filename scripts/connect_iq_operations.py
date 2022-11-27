@@ -35,6 +35,8 @@ def get_multi_page_review_json_using_bs4(app_url):
     pagination_url_template = '{}?tab=reviews&criteria=createdDate&ascending=false&displayCurrentVersion=false&start={}'
     app_name, downloads, reviews_cnt = get_app_info_tuple_using_bs4(
         initial_html)
+    if int(reviews_cnt) <= 25:
+        print('-------------------Reviews is less than 25-------------------')
     reviews = get_single_page_review_json_using_bs4(
         initial_html)  # the first page
     page_cnt = int(int(reviews_cnt) / 25)
@@ -79,10 +81,11 @@ def analyse_remote_reviews_data(app_url):
 
 def analyse_local_reviews_data(path):
     reviews = load_json(path)
-    analyse_reviews_data(reviews)
+    app_name = path.split('_')[4]
+    analyse_reviews_data(reviews, app_name)
 
 
-def analyse_reviews_data(reviews):
+def analyse_reviews_data(reviews, app_name):
     user_review_times_dict = {}  # record per user comment times
     comment_dict = {}
     comment_date_dict = {}
@@ -120,18 +123,21 @@ def analyse_reviews_data(reviews):
         comment_date_dict.items(), key=lambda x: x[1], reverse=True)
     converted_comment_date_dict = dict(sorted_comment_date_dict)
 
-    print('------------------------日期评论次数排名----------------------------')
+    print('------------------------应用:「{}」日期产生评价次数排名----------------------------'.format(app_name))
+    print('------------------------APP:「{}」Reviews Generated  on Date Order by Ammount----------------------------'.format(app_name))
     hasMoreThan3CommentsPerday = False
     for k, v in converted_comment_date_dict.items():
         if int(v) >= 3:
             hasMoreThan3CommentsPerday = True
             print("{}  \t产生了:{}条评论".format(k.split('|')[0], v))
     if not hasMoreThan3CommentsPerday:
-        print('竟然没有一天内超过三条评论')
+        print('应用:「{}」竟然没有一天内超过三条评论'.format(app_name))
+        print('APP:「{}」No Day Reviews more than 3'.format(app_name))
 
     hasMoreThan3CommentsPerday = False
 
-    print('---------------------“狂热粉丝”排行榜 这得多爱你才能浪费生命写这么多评价-------------------------------')
+    print('---------------------“应用:「{}」狂热粉丝”排行榜, 单个用户评价次数排行------------------------------'.format(app_name))
+    print('---------------------“APP:「{}」Big Fans” Single User Reviews Order By Times-------------------------------'.format(app_name))
 
     for k, v in converted_user_review_times_dict.items():
         if int(v) > 3:
@@ -139,17 +145,20 @@ def analyse_reviews_data(reviews):
             print("「{}」\t累计评价 \t「{}」次 ".format(k, v))
 
     if not hasMoreThan3CommentsPerday:
-        print('竟然没有一位粉丝评论超过3次')
+        print('应用:「{}」没有一位粉丝评论超过3次'.format(app_name))
+        print('APP:「{}」No User Reviews more than 3 Times'.format(app_name))
     hasMoreThan3CommentsPerday = False
 
-    print('-----------------------重复垃圾评论,真有你的-----------------------------')
+    print('-----------------------应用:「{}」重复垃圾评论出现次数排行榜,真有你的-----------------------------'.format(app_name))
+    print('-----------------------APP:「{}」Duplicated Reviews Order by Times Shown-----------------------------'.format(app_name))
 
     for k, v in converted_sorted_comment_dict.items():
         if int(v) > 3:
             hasMoreThan3CommentsPerday = True
-            print("出现「{}」次的评论:「{}」".format(v, k))
+            print("出现「{}」次的评论为:「{}」".format(v, k))
     if not hasMoreThan3CommentsPerday:
-        print('竟然没有重复垃圾评论')
+        print('应用:「{}」没有重复垃圾评论'.format(app_name))
+        print('APP:「{}」No Duplicate Reviews'.format(app_name))
 
 
 def get_single_page_review_json_using_bs4(html_text):
