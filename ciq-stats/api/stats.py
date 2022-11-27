@@ -3,7 +3,7 @@ import io
 from flask import Flask, Response
 from flask import request
 import json
-from ciqreviews import get_app_download_info
+import ciqreviews as ciq
 from datetime import datetime
 
 
@@ -40,7 +40,7 @@ def home(path):
         date = cache_info['date']
         today_date = datetime.now().strftime("%Y_%m_%d")
         if today_date != date:
-            app_name, downloads, reviews_cnt, average_rating = get_app_download_info(
+            app_name, downloads, reviews_cnt, average_rating = ciq.get_app_download_info(
                 id, domain)
             cache_info = {
                 'date': today_date,
@@ -51,7 +51,7 @@ def home(path):
             cache[query_key] = cache_info
         return cache_info[mode], 200
     else:
-        app_name, downloads, reviews_cnt, average_rating = get_app_download_info(
+        app_name, downloads, reviews_cnt, average_rating = ciq.get_app_download_info(
             id, domain)
         cache_info = {
             'date': today_date,
