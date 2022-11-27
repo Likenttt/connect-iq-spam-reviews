@@ -35,10 +35,10 @@ def home(path):
         return 'M_E', 200
 
     query_key = '{}_{}'.format(id, domain)
+    today_date = datetime.now().strftime("%Y_%m_%d")
     if query_key in cache.keys():
         cache_info = cache[query_key]
         date = cache_info['date']
-        today_date = datetime.now().strftime("%Y_%m_%d")
         if today_date != date:
             app_name, downloads, reviews_cnt, average_rating = ciq.get_app_download_info(
                 id, domain)

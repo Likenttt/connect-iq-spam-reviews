@@ -1,7 +1,7 @@
 
 # -*- coding: UTF-8 -*-
 import argparse
-from connectiq import get_html_text_from_url, analyse_local_reviews_data, get_single_page_review_json_using_bs4, analyse_remote_reviews_data, analyse_local_reviews_data, get_multi_page_review_json_using_bs4
+from connectiq import get_html_text_from_url, get_app_download_info, analyse_local_reviews_data, get_single_page_review_json_using_bs4, analyse_remote_reviews_data, analyse_local_reviews_data, get_multi_page_review_json_using_bs4
 import os
 
 
@@ -23,5 +23,10 @@ print(os.environ["http_proxy"])
 # analyse_local_reviews_data(os.path.join(os.getcwd(),
 #                                         '2022_11_27_JumpJump跳绳_42885_232.json'))
 
-analyse_remote_reviews_data(
-    'https://apps.garmin.cn/zh-CN/apps/dc6ceca8-6ec6-49f2-b711-4ebc0d347177')
+# analyse_remote_reviews_data(
+#     'https://apps.garmin.cn/zh-CN/apps/dc6ceca8-6ec6-49f2-b711-4ebc0d347177')
+
+
+app_name_com, total_downloads, total_reviews, average_rating = get_app_download_info(
+    'dc6ceca8-6ec6-49f2-b711-4ebc0d347177', 'com')
+print(app_name_com, total_downloads, total_reviews, average_rating)

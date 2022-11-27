@@ -18,13 +18,13 @@ def get_app_download_info(id, domain):
     app_name_cn, downloads_cn, reviews_cnt_cn, average_rating_cn = '', 0, 0, 0
     if domain == 'cn' or domain == 'all':
         app_url = APP_HOMEPAGE_URL_CN_TEMPLATE.format(id)
-        initial_text = get_html_text_from_url(app_url)
+        html_text = get_html_text_from_url(app_url)
         app_name_cn, downloads_cn, reviews_cnt_cn, average_rating_cn = get_app_info_tuple_using_bs4(
             html_text)
     app_name_com, downloads_com, reviews_cnt_com, average_rating_com = '', 0, 0, 0
     if domain == 'com' or domain == 'all':
         app_url = APP_HOMEPAGE_URL_COM_TEMPLATE.format(id)
-        initial_text = get_html_text_from_url(app_url)
+        html_text = get_html_text_from_url(app_url)
         app_name_com, downloads_com, reviews_cnt_com, average_rating_com = get_app_info_tuple_using_bs4(
             html_text)
 
@@ -33,7 +33,7 @@ def get_app_download_info(id, domain):
     average_rating = 0 if total_reviews == 0 else "{:.1f}".format(
         (float(average_rating_cn) * int(reviews_cnt_cn) +
          float(average_rating_com) * int(reviews_cnt_com))/total_reviews)
-    return app_name_com, total_downloads, total_reviews, average_rating
+    return str(app_name_com), str(total_downloads), str(total_reviews), str(average_rating)
 
 
 def get_app_info_tuple_using_bs4(html_text):
@@ -42,7 +42,7 @@ def get_app_info_tuple_using_bs4(html_text):
         'h1', attrs={'class': 'media-heading h2'}).get_text()
     downloads_tag = soup.find(
         'span', attrs={'class': 'stat-adds'}).find('span', {'class': ''})
-    downloads = 0 if downloads_tag is None else downloads.get_text()
+    downloads = 0 if downloads_tag is None else downloads_tag.get_text()
 
     reviews_tag = soup.find('a', attrs={'id': 'activateReviewsTab'})
     reviews_cnt = 0 if reviews_tag is None else reviews_tag.find(
