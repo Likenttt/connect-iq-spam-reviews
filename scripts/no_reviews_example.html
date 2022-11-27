@@ -1,0 +1,988 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>Connect IQ Store | Free Watch Faces and Apps | Garmin</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Explore and download apps to personalize your Garmin with Connect IQ, our open platform for third-party developer apps." />
+<meta name="author" content="" />
+<link href="//static.garmin.com/com.garmin.connect/ui/css/fonts-self-hosted-v1.0-min.css" rel="stylesheet" type="text/css" />
+<link href="//static.garmin.com/com.garmin.apps/ui/css/apps.lib-v1.1-min.css" rel="stylesheet" />
+<script id="utag" type="20e6adb5049dbf252f78e5e0-text/javascript">
+            (function() {
+                var stateChange = function(event) {
+                    if (event.target.readyState === 'complete') {
+                        return injectTealium()
+                    }
+                };
+                var injectTealium = function() {
+                    var self = document.getElementById('utag')
+                    var utag = document.createElement('script');
+                    utag.src="https://tags.tiqcdn.com/utag/garmin/main/prod/utag.js"
+                    utag.type="text/javascript";
+                    utag.async=true;
+                    setTimeout(function() {
+                        self.parentNode.insertBefore(utag, self)
+                        document.removeEventListener('readystatechange', stateChange)
+                    },500)
+                };
+                if (document.readyState !== 'complete') {
+                    document.addEventListener('readystatechange', stateChange, {passive: true}, true);
+                } else {
+                    injectTealium()
+                }
+            })()
+        </script>
+<style>
+            #antplusprofiles-section {
+                display:none
+            }
+            .consentBar {
+                position: fixed;
+                z-index: 110;
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                background-color: #333;
+                color: #fff;
+                margin: 0 auto;
+                font-size: 14px;
+            }
+            .cookiePreference {
+                display: inline;
+                margin: auto;
+                width: 25%;
+                height: 25%;
+            }
+            .cookiePreference a {
+               white-space: nowrap;
+            }
+            /* Styling for consent banner */
+            #truste-consent-track {
+                display: block;
+            }
+
+            #truste-consent-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                width: 100%;
+                box-sizing: border-box;
+                /*  padding: 10px; */
+            }
+
+            #truste-consent-text {
+                margin: 0 1rem 0 0;
+            }
+
+            #truste-consent-buttons {
+                display: flex;
+                flex-direction: row;
+                margin-top: 1px !important;
+                margin-left: 10px !important;
+            }
+
+            #truste-consent-button,
+            #truste-show-consent {
+                font-family: 'Open Sans', 'HelveticaNeue', 'HelveticaNeueu', Arial, sans-serif;
+                font-size: 14px;
+                color: #fff;
+                background-color: #4a4a4a;
+                cursor: pointer;
+                padding: 5px 20px;
+                margin: 12px 0;
+                border-radius: 4px;
+                border: none;
+            }
+
+            #truste-show-consent {
+                margin-left: 1rem;
+            }
+
+            #truste-consent-button:hover,
+            #truste-show-consent:hover {
+                background-color: #4a4a4a;
+            }
+
+            #truste-cookie-button {
+                color: #fff;
+                margin: 1rem;
+                line-height: 2;
+            }
+
+            /* Explicit consent modal */
+            .truste_overlay {
+                background: #fff !important;
+                opacity: 0.8 !important;
+            }
+            .truste_box_overlay {
+                background: none !important;
+            }
+            .truste_box_overlay_inner {
+                border: 3px solid #e8e8e8;
+            }
+
+            .nav-tabs>li.active#nav-tab-statistics-versions>a#redrawVersions.btn-passive-tab {
+                color: #134561 !important;
+                background-color: #11a9ed !important;
+                border-color: #11a9ed !important;
+                box-shadow: none !important;
+            }
+
+            .nav-tabs>li.active#nav-tab-statistics-devices>a#redrawDevices.btn-passive-tab {
+                color: #134561 !important;
+                background-color: #11a9ed !important;
+                border-color: #11a9ed !important;
+                box-shadow: none !important;
+            }
+
+            @media screen and (min-device-width:230px){
+                .highcharts-container{
+                    width:230px;
+                }
+            }
+            @media screen and (min-device-width:768px){
+                .highcharts-container{
+                    width:768px;
+                }
+            }
+            @media screen and (min-device-width:992px){
+                .highcharts-container{
+                    width:992px;
+                }
+            }
+            @media screen and (min-device-width:1200px){
+                .highcharts-container{
+                    width:1200px;
+                }
+            }
+
+        </style>
+<link href="/css/ribbon.css?artifact=3.0.31" rel="stylesheet" />
+<link href="/css/responsiveAppView.css?artifact=3.0.31" rel="stylesheet" />
+<link href="/css/heroimage.css?artifact=3.0.31" rel="stylesheet" />
+<link href="//static.garmin.com/appstore/css/2.1-updates.css" rel="stylesheet" />
+
+<!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+<script type="20e6adb5049dbf252f78e5e0-text/javascript" src="//static.garmin.com/com.garmin/ui/js/garmin.lib-v1.2-min.js"></script>
+<script type="20e6adb5049dbf252f78e5e0-text/javascript" src="//static.garmin.com/com.garmin/ui/js/garmin.host-v1.3-min.js"></script>
+<script type="20e6adb5049dbf252f78e5e0-text/javascript" src="//static.garmin.com/com.garmin/ui/js/jquery-v1.10-min.js"></script>
+<script type="20e6adb5049dbf252f78e5e0-text/javascript" src="//static.garmin.com/com.garmin.connect/ui/js/jquery.migrate-v1.2-min.js"></script>
+<script type="20e6adb5049dbf252f78e5e0-text/javascript" src="//static.garmin.com/com.garmin.apps/ui/src-js/bootstrap.min.js"></script>
+<script type="20e6adb5049dbf252f78e5e0-text/javascript" src="//static.garmin.com/com.garmin.apps/ui/src-js/jasny-bootstrap.min.js"></script>
+
+<script type="20e6adb5049dbf252f78e5e0-text/javascript" src="/js/apps-main.js?artifact=3.0.31"></script>
+
+<script type="20e6adb5049dbf252f78e5e0-text/javascript" src="/js/appsLibrary.js?artifact=3.0.31"></script>
+ 
+
+<script defer src="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.1.0/svg-with-js/js/fontawesome-all.min.js" type="20e6adb5049dbf252f78e5e0-text/javascript"></script>
+<meta property="og:url" content="https://apps.garmin.com/en-US/apps/a707f466-7753-4882-be4a-e13eb75d19f9" />
+<meta property="og:title" content="中华黄历" />
+<meta property="og:description" content="# 中华黄历&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;### 特色速览&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;✅ 公历日期&lt;/p&gt;&lt;p&gt;✅ 农历日期&lt;/p&gt;&lt;p&gt;✅ 星期&lt;/p&gt;&lt;p&gt;✅ 宜忌&lt;/p&gt;&lt;p&gt;✅ 干支年月日&lt;/p&gt;&lt;p&gt;✅ 生肖&lt;/p&gt;&lt;p&gt;✅ 开发中...&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;如果你喜欢「中华黄历」，请给我们写一个五星好评 ⭐️⭐️⭐️⭐️⭐️.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;### 付费&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;本应用售价 25，您可免费试用 1 天。试用结束后您需要支付以继续使用。&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;支付方式：请使用微信搜索：牛拉松商城，点击橱窗中的「中华黄历」，支付完成页面将提醒您生成激活码，点击进入生成激活码页面，输入在 Connect IQ 应用设置中获取的 40 位数【设备标识符/设备 ID】并点击生成按钮即可获得激活码，最终将激活码粘贴到 Connect IQ 设置的区域即可。&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;如果您有问题或建议，请您联系微信：niuverse，请备注「黄历」以便我更快地为您服务。购买后您可以添加我微信，我可以邀请您加入中华黄历用户问题交流反馈群，问题反馈、bug 修复、更新日志都会第一时间发布在群里。如您需要购买全新的佳明设备，请来淘宝店铺：牛拉松运动产品，本应用将会作为赠品附送。&lt;/p&gt;&lt;p&gt;公众号：李二牛 / 牛拉松&lt;/p&gt;&lt;p&gt;淘宝：牛拉松运动产品" />
+<meta property="og:locale" content="en-US" />
+<meta property="og:site_name" content="Garmin Connect IQ&trade; Store" />
+<meta property="og:image:secure_url" content="https://services.garmin.com/appsLibraryBusinessServices_v0/rest/apps/a707f466-7753-4882-be4a-e13eb75d19f9/icon/495d7950-6e6d-491b-8d43-79461f9bc774" />
+<meta property="og:image" content="https://services.garmin.com/appsLibraryBusinessServices_v0/rest/apps/a707f466-7753-4882-be4a-e13eb75d19f9/icon/495d7950-6e6d-491b-8d43-79461f9bc774" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@Garmin" />
+<script src="https://code.highcharts.com/highcharts.js" type="20e6adb5049dbf252f78e5e0-text/javascript"></script>
+<script src="https://code.highcharts.com/modules/exporting.js" type="20e6adb5049dbf252f78e5e0-text/javascript"></script>
+<script src="https://code.highcharts.com/modules/export-data.js" type="20e6adb5049dbf252f78e5e0-text/javascript"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js" type="20e6adb5049dbf252f78e5e0-text/javascript"></script>
+<link href="/css/passive-logging.css" rel="stylesheet" />
+</head>
+<body>
+
+<div id="header" class="navbar navbar-inverse navbar-static-top" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a id="homeLink" class="navbar-brand" href="/en-US/"><img src="//static.garmin.com/com.garmin.apps/ui/images/logo-connect-iq.png" alt="Connect IQ" /></a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav navbar-right">
+<li id="developerDashboardLink"><a href="#">Developer Dashboard</a></li>
+<li id="connectLink"><a href="https://connect.garmin.com/modern">Connect Dashboard</a></li>
+<li id="signInLink"><a href="#">Sign In</a></li>
+<li id="signOutLink"><a href="/signOut?service=/en-US">Sign Out</a></li>
+<li id="api-locale-options" class="dropdown country-selector">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">(active language) <span class="caret"></span></a>
+<ul id="country-selector-dropdown" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+<li><a class="language-links flag-th-TH" href="/th-TH/" title="ไทย" data-locale="th-TH">ไทย</a></li>
+<li><a class="language-links flag-ko-KR" href="/ko-KR/" title="한국어" data-locale="ko-KR">한국어</a></li>
+<li><a class="language-links flag-id-ID" href="/id-ID/" title="Bahasa Indonesia" data-locale="id-ID">Bahasa Indonesia</a></li>
+<li><a class="language-links flag-ms-MY" href="/ms-MY/" title="Bahasa Melayu" data-locale="ms-MY">Bahasa Melayu</a></li>
+<li><a class="language-links flag-cs-CZ" href="/cs-CZ/" title="Čeština" data-locale="cs-CZ">Čeština</a></li>
+<li><a class="language-links flag-da-DK" href="/da-DK/" title="Dansk" data-locale="da-DK">Dansk</a></li>
+<li><a class="language-links flag-de-DE" href="/de-DE/" title="Deutsch" data-locale="de-DE">Deutsch</a></li>
+<li><a class="language-links flag-en-US active" href="/en-US/" title="English" data-locale="en-US">English</a></li>
+<li><a class="language-links flag-es-ES" href="/es-ES/" title="Español" data-locale="es-ES">Español</a></li>
+<li><a class="language-links flag-fr-FR" href="/fr-FR/" title="Français" data-locale="fr-FR">Français</a></li>
+<li><a class="language-links flag-hr-HR" href="/hr-HR/" title="Hrvatski" data-locale="hr-HR">Hrvatski</a></li>
+<li><a class="language-links flag-it-IT" href="/it-IT/" title="Italiano" data-locale="it-IT">Italiano</a></li>
+<li><a class="language-links flag-hu-HU" href="/hu-HU/" title="Magyar" data-locale="hu-HU">Magyar</a></li>
+<li><a class="language-links flag-nl-NL" href="/nl-NL/" title="Nederlands" data-locale="nl-NL">Nederlands</a></li>
+<li><a class="language-links flag-nb-NO" href="/nb-NO/" title="Norsk" data-locale="nb-NO">Norsk</a></li>
+<li><a class="language-links flag-pl-PL" href="/pl-PL/" title="Polski" data-locale="pl-PL">Polski</a></li>
+<li><a class="language-links flag-pt-BR" href="/pt-BR/" title="Português (Brasil)" data-locale="pt-BR">Português (Brasil)</a></li>
+<li><a class="language-links flag-pt-PT" href="/pt-PT/" title="Português (Portugal)" data-locale="pt-PT">Português (Portugal)</a></li>
+<li><a class="language-links flag-sk-SK" href="/sk-SK/" title="Slovenčina" data-locale="sk-SK">Slovenčina</a></li>
+<li><a class="language-links flag-sl-SI" href="/sl-SI/" title="Slovenščina" data-locale="sl-SI">Slovenščina</a></li>
+<li><a class="language-links flag-fi-FI" href="/fi-FI/" title="Suomi" data-locale="fi-FI">Suomi</a></li>
+<li><a class="language-links flag-sv-SE" href="/sv-SE/" title="Svenska" data-locale="sv-SE">Svenska</a></li>
+<li><a class="language-links flag-he-IL" href="/he-IL/" title="עברית" data-locale="he-IL">עברית</a></li>
+<li><a class="language-links flag-el-GR" href="/el-GR/" title="Ελληνικά" data-locale="el-GR">Ελληνικά</a></li>
+<li><a class="language-links flag-ru-RU" href="/ru-RU/" title="Русский" data-locale="ru-RU">Русский</a></li>
+<li><a class="language-links flag-ja-JP" href="/ja-JP/" title="日本語" data-locale="ja-JP">日本語</a></li>
+<li><a class="language-links flag-zh-CN" href="/zh-CN/" title="简体中文" data-locale="zh-CN">简体中文</a></li>
+<li><a class="language-links flag-zh-TW" href="/zh-TW/" title="繁體中文" data-locale="zh-TW">繁體中文</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div>
+<div class="subnavbar">
+<div class="container">
+<form role="search" method="GET" action="/en-US/search?">
+<div class="input-group">
+<input type="text" name="q" class="form-control" placeholder="Search by App Title or Description" al:aria-label="#{search.query.placeholder}" required="true" id="q" value="" />
+<input type="hidden" name="device" value="" />
+<input type="hidden" name="deviceLimit" id="deviceLimit" value="" />
+<input type="hidden" name="appType" value="" />
+<input type="hidden" name="sort" value="" />
+<input type="hidden" name="start" value="0" />
+<input type="hidden" name="count" value="30" />
+<span class="input-group-btn">
+<button type="submit" class="btn btn-primary" alt="Search">
+<span class="glyphicon glyphicon-search"></span>
+</button>
+</span>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="container">
+<script type="20e6adb5049dbf252f78e5e0-text/javascript">
+            var appName = "\u4E2D\u534E\u9EC4\u5386";
+        </script>
+<div class="row top-s bottom-s">
+<div class="col-xs-4 col-sm-3 col-md-3">
+<div class="aspect">
+<div class="aspect-square"></div>
+<img src="https://services.garmin.com/appsLibraryBusinessServices_v0/rest/apps/a707f466-7753-4882-be4a-e13eb75d19f9/icon/495d7950-6e6d-491b-8d43-79461f9bc774" class="img-responsive aspect-element" alt="App Icon" />
+</div>
+</div>
+<div class="modal fade" id="Popup">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title">Payment Required</h4>
+</div>
+<br>
+<div class="modal-body">
+<p class="modal-title">Third-Party Payments</p>
+<p>This Connect IQ app may require or request payment for usage. Any payments related to this app will be processed using a third-party payment service chosen by the app developer. Garmin does not review or manage these payment services. We also do not receive your payments and cannot issue refunds. For more information, please contact the app developer.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xs-8 col-sm-9 col-md-9">
+<div class="app-detail">
+<h1 class="media-heading h2">中华黄历</h1>
+<ul class="list-unstyled">
+<li>
+<a href="/en-US/developer/876cfd5e-4e42-48ca-8869-cd7c59235573/apps" class="developer-name truncate ">Newrathon</a>
+</li>
+<li>
+<span class="app-type">
+<img src="//static.garmin.com/appstore/img/icons/app-type2/widgets.svg" alt="Widget" title="Widget" />
+Widget
+</span>
+</li>
+<li>
+<span class="stat-adds"><span class="glyphicon glyphicon-circle-arrow-down"></span> <span>44</span></span>
+</li>
+<li>
+<span class="badge" data-target="#Popup" data-toggle="modal">Payment Required</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-xs-12 col-sm-9 col-md-9">
+<input type="hidden" name="deviceContextUnit" id="deviceContextUnitId" value="" />
+<button type="button" class="btn btn-primary btn-lg bottom-xs top-s" id="sendToDeviceBtn">
+<span class="glyphicon glyphicon-circle-arrow-down"></span> Download
+</button>
+<div id="sendToDeviceSuccess" class="alert alert-success" style="display: none;">
+<p></p>
+<p><a href="#modal-device-sync" data-toggle="modal">How To Sync</a></p>
+</div>
+<div id="sendToDeviceFailureAlert" class="alert alert-danger" style="display: none;">
+<p>Sorry, the app wasn’t sent to your device because we’re having trouble communicating with our servers. Please try again later.</p>
+</div>
+<div id="sendToDeviceFailureAlertIncompatibleFirmware" class="alert alert-danger" style="display: none;">
+<p>This app requires an update of your {0}. Please use <a href="https://software.garmin.com/en-US/express.html" target="_blank">Garmin Express</a> to update your {0}.</p>
+</div>
+</div>
+</div>
+
+<ul class="nav nav-tabs top-s" role="tablist">
+<li id="nav-tab-appinfo" class="active"><a href="#appInfo" role="tab" data-toggle="tab">App Info</a></li>
+<li id="nav-tab-compatibledevices"><a href="#compatible-devices" role="tab" data-toggle="tab">Compatible Devices</a></li>
+<li id="nav-tab-reviews"><a href="#reviews" role="tab" data-toggle="tab">Reviews</a>
+</li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active app-info" id="appInfo">
+<div class="row">
+<div class="details col-xs-12 col-sm-8">
+<h2 class="h3">Description</h2>
+<script type="20e6adb5049dbf252f78e5e0-text/javascript">
+                                var fullAppDescription = "# \u4E2D\u534E\u9EC4\u5386<\/p><p><\/p><p>### \u7279\u8272\u901F\u89C8<\/p><p><\/p><p>\u2705 \u516C\u5386\u65E5\u671F<\/p><p>\u2705 \u519C\u5386\u65E5\u671F<\/p><p>\u2705 \u661F\u671F<\/p><p>\u2705 \u5B9C\u5FCC<\/p><p>\u2705 \u5E72\u652F\u5E74\u6708\u65E5<\/p><p>\u2705 \u751F\u8096<\/p><p>\u2705 \u5F00\u53D1\u4E2D...<\/p><p><\/p><p>\u5982\u679C\u4F60\u559C\u6B22\u300C\u4E2D\u534E\u9EC4\u5386\u300D\uFF0C\u8BF7\u7ED9\u6211\u4EEC\u5199\u4E00\u4E2A\u4E94\u661F\u597D\u8BC4 \u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F\u2B50\uFE0F.<\/p><p><\/p><p>### \u4ED8\u8D39<\/p><p><\/p><p>\u672C\u5E94\u7528\u552E\u4EF7 25\uFF0C\u60A8\u53EF\u514D\u8D39\u8BD5\u7528 1 \u5929\u3002\u8BD5\u7528\u7ED3\u675F\u540E\u60A8\u9700\u8981\u652F\u4ED8\u4EE5\u7EE7\u7EED\u4F7F\u7528\u3002<\/p><p><\/p><p>\u652F\u4ED8\u65B9\u5F0F\uFF1A\u8BF7\u4F7F\u7528\u5FAE\u4FE1\u641C\u7D22\uFF1A\u725B\u62C9\u677E\u5546\u57CE\uFF0C\u70B9\u51FB\u6A71\u7A97\u4E2D\u7684\u300C\u4E2D\u534E\u9EC4\u5386\u300D\uFF0C\u652F\u4ED8\u5B8C\u6210\u9875\u9762\u5C06\u63D0\u9192\u60A8\u751F\u6210\u6FC0\u6D3B\u7801\uFF0C\u70B9\u51FB\u8FDB\u5165\u751F\u6210\u6FC0\u6D3B\u7801\u9875\u9762\uFF0C\u8F93\u5165\u5728 Connect IQ \u5E94\u7528\u8BBE\u7F6E\u4E2D\u83B7\u53D6\u7684 40 \u4F4D\u6570\u3010\u8BBE\u5907\u6807\u8BC6\u7B26\/\u8BBE\u5907 ID\u3011\u5E76\u70B9\u51FB\u751F\u6210\u6309\u94AE\u5373\u53EF\u83B7\u5F97\u6FC0\u6D3B\u7801\uFF0C\u6700\u7EC8\u5C06\u6FC0\u6D3B\u7801\u7C98\u8D34\u5230 Connect IQ \u8BBE\u7F6E\u7684\u533A\u57DF\u5373\u53EF\u3002<\/p><p><\/p><p>\u5982\u679C\u60A8\u6709\u95EE\u9898\u6216\u5EFA\u8BAE\uFF0C\u8BF7\u60A8\u8054\u7CFB\u5FAE\u4FE1\uFF1Aniuverse\uFF0C\u8BF7\u5907\u6CE8\u300C\u9EC4\u5386\u300D\u4EE5\u4FBF\u6211\u66F4\u5FEB\u5730\u4E3A\u60A8\u670D\u52A1\u3002\u8D2D\u4E70\u540E\u60A8\u53EF\u4EE5\u6DFB\u52A0\u6211\u5FAE\u4FE1\uFF0C\u6211\u53EF\u4EE5\u9080\u8BF7\u60A8\u52A0\u5165\u4E2D\u534E\u9EC4\u5386\u7528\u6237\u95EE\u9898\u4EA4\u6D41\u53CD\u9988\u7FA4\uFF0C\u95EE\u9898\u53CD\u9988\u3001bug \u4FEE\u590D\u3001\u66F4\u65B0\u65E5\u5FD7\u90FD\u4F1A\u7B2C\u4E00\u65F6\u95F4\u53D1\u5E03\u5728\u7FA4\u91CC\u3002\u5982\u60A8\u9700\u8981\u8D2D\u4E70\u5168\u65B0\u7684\u4F73\u660E\u8BBE\u5907\uFF0C\u8BF7\u6765\u6DD8\u5B9D\u5E97\u94FA\uFF1A\u725B\u62C9\u677E\u8FD0\u52A8\u4EA7\u54C1\uFF0C\u672C\u5E94\u7528\u5C06\u4F1A\u4F5C\u4E3A\u8D60\u54C1\u9644\u9001\u3002<\/p><p>\u516C\u4F17\u53F7\uFF1A\u674E\u4E8C\u725B \/ \u725B\u62C9\u677E<\/p><p>\u6DD8\u5B9D\uFF1A\u725B\u62C9\u677E\u8FD0\u52A8\u4EA7\u54C1";
+                                var appDescriptionMoreLabel = "More";
+                            </script>
+<p id="description" data-linkify="this"># 中华黄历&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;### 特色速览&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;✅ 公历日期&lt;/p&gt;&lt;p&gt;✅ 农历日期&lt;/p&gt;&lt;p&gt;✅ 星期&lt;/p&gt;&lt;p&gt;✅ 宜忌&lt;/p&gt;&lt;p&gt;✅ 干支年月日&lt;/p&gt;&lt;p&gt;✅ 生肖&lt;/p&gt;&lt;p&gt;✅ 开发中...&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;如果你喜欢「中华黄历」，请给我们写一个五星好评 ⭐️⭐️⭐️⭐️⭐️.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;### 付费&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;本应用售价 25，您可免费试用 1 天。试用结束后您需要支付以继续使用。&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;支付方式：请使用微信搜索：牛拉松商城，点击橱窗中的「中华黄历」，支付完成页面将提醒您生成激活码，点击进入生成激活码页面，输入在 Connect IQ 应用设置中获取的 40 位数【设备标识符/设备 ID】并点击生成按钮即可获得激活码，最终将激活码粘贴到 Connect IQ 设置的区域即可。&lt;/p&gt;</p>
+<script type="20e6adb5049dbf252f78e5e0-text/javascript">$("#description").html(($("#description").text()));</script>
+<div>
+ <h2 class="h3">What’s New</h2>
+<p id="whatsNew" data-linkify="this">### 1.3&lt;/p&gt;&lt;p&gt;代码优化;变更为付费应用&lt;/p&gt;&lt;p&gt;### 1.2&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;解决一些 bug&lt;/p&gt;&lt;p&gt;### 1.1&lt;/p&gt;&lt;p&gt;- feat: 浏览内容非当前月时显示月份&lt;/p&gt;&lt;p&gt;- feat: 增加早期设备交互引导&lt;/p&gt;&lt;p&gt;- fix: 菜单崩溃问题&lt;/p&gt;&lt;p&gt;1.0 首次发布</p>
+<script type="20e6adb5049dbf252f78e5e0-text/javascript">$("#whatsNew").html(($("#whatsNew").text()));</script>
+</div>
+<div class="panel panel-default bottom-l top-l">
+<div class="panel-body">
+<div id="carousel-screens" class="carousel slide">
+
+<ol class="carousel-indicators">
+<li data-target="#carousel-screens" class="active" data-slide-to="0"></li>
+<li data-target="#carousel-screens" data-slide-to="1"></li>
+ <li data-target="#carousel-screens" data-slide-to="2"></li>
+</ol>
+
+<div class="carousel-inner">
+<div class="item active">
+<img src="https://services.garmin.com/appsLibraryBusinessServices_v0/rest/apps/a707f466-7753-4882-be4a-e13eb75d19f9/screenshots/2f5aeb0e-f556-4064-839a-2c287e3e7a1e" alt="Screenshot" />
+</div>
+<div class="item">
+<img src="https://services.garmin.com/appsLibraryBusinessServices_v0/rest/apps/a707f466-7753-4882-be4a-e13eb75d19f9/screenshots/61edd512-c7d9-4058-8705-a0d01fddfa92" alt="Screenshot" />
+</div>
+<div class="item">
+<img src="https://services.garmin.com/appsLibraryBusinessServices_v0/rest/apps/a707f466-7753-4882-be4a-e13eb75d19f9/screenshots/77adfb96-aa73-44b4-8963-da1131bc7ae3" alt="Screenshot" />
+</div>
+</div>
+
+<a class="left carousel-control" href="#carousel-screens" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span>
+</a> <a class="right carousel-control" href="#carousel-screens" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-3 col-sm-offset-1">
+<div>
+<h2 class="h3 bottom-s">Requirements</h2>
+<div>
+<h3 class="h6">Companion Hardware</h3>
+<a target="_blank" type="button" class="btn btn-secondary external-link bottom-s" role="button" href="https://apps.apple.com/us/app/pacelator/id6444172813">Get the Hardware <span class="glyphicon glyphicon-arrow-right"></span></a>
+</div>
+<div>
+<h2 class="h3">Additional Information</h2>
+<ul class="list-unstyled">
+
+<li>
+<strong>Initial Release:</strong> November 8, 2022
+</li>
+
+<li>
+<strong>Updated:</strong> November 14, 2022
+</li>
+
+<div>
+<li><strong>Version:</strong> 1.3 </li>
+</div>
+<br />
+
+
+
+
+<li><a id="contactDeveloperId" href="/en-US/apps/a707f466-7753-4882-be4a-e13eb75d19f9/contactdeveloper">Contact Developer</a></li>
+
+<li><a id="flagInappropriateId" href="/en-US/apps/a707f466-7753-4882-be4a-e13eb75d19f9/flaginappropriate">Flag as Inappropriate</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="details col-xs-12 col-sm-8 bottom-l">
+<h2 class="h3">Permissions</h2>
+<div>
+<p>This app requires access to:</p>
+<ul>
+<li>Send/receive information to/from the Internet</li>
+</ul>
+</div>
+</div>
+</div> 
+<div class="tab-pane" id="compatible-devices">
+<ul class="list-unstyled top-m">
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02172-41/g/cf-sm-0a318bb6-9baa-4c5d-b344-19de0c656cd7.jpg" alt="Captain Marvel" />
+<span>Captain Marvel</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02174-51/g/rf-sm-068425e4-b235-460f-a031-304d364ebb6c.jpg" alt="Darth Vader™" />
+<span>Darth Vader™</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02132-00/v/pd-03-sm-5dcaa3d1-3191-4acb-b602-7790096bddd6.jpg" alt="Descent™ MK2" />
+<span>Descent™ MK2, Descent™MK2i</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02403-00/v/cm-sm-ffd44110-3573-4463-9894-dd6896cdef35.png" alt="Descent™ Mk2S" />
+<span>Descent™ Mk2S</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01758-10/g/cf-sm.jpg" alt="Edge® 1030" />
+<span>Edge® 1030</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02424-00/g/cf-sm-87bc593f-a77e-4708-8d5c-b45ce3c8f4a7.jpg" alt="Edge® 1030 Plus" />
+<span>Edge® 1030 Plus</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02083-00/v/cf-sm-222cacb8-6733-4d20-8ad9-6c69b4fc917b.jpg" alt="Edge® 520 Plus" />
+<span>Edge® 520 Plus</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02060-00/v/cf-sm-4eb7ba21-1912-4616-bdf2-87c56008c2b8.jpg" alt="Edge® 530" />
+<span>Edge® 530</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01626-00/g/cf-sm.jpg" alt="Edge® 820" />
+<span>Edge® 820</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02060-00/v/cf-sm-4eb7ba21-1912-4616-bdf2-87c56008c2b8.jpg" alt="Edge® 830" />
+<span>Edge® 830</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01626-02/g/cf-sm.jpg" alt="Edge® Explore 820" />
+<span>Edge® Explore 820</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02408-00/v/pd-01-sm-d11e8da1-0277-4007-a62f-d41c0343b6cd.jpg" alt="Enduro™" />
+<span>Enduro™</span>
+</li>
+<li>
+<img src="https://res.cloudinary.com/it-production/image/upload/v1648824135/Product_Images/en/products/010-02754-00/g/pd-05-sm-66796f25-e282-4a31-bd44-93fb6ddbf2ee.jpg" alt="Enduro™ 2" />
+<span>Enduro™ 2</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02582-00/v/sc-02-sm-a9a189e7-e6a6-4a21-a8f2-71d306469085.jpg" alt="epix™ (Gen 2)" />
+<span>epix™ (Gen 2), quatix® 7 – Sapphire Edition</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02174-41/g/cf-sm-f2db5e1c-5419-42b2-9f22-c4da61e9878a.jpg" alt="First Avenger" />
+<span>First Avenger</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02120-00/v/cf-sm-13aa6bd1-4382-4520-ba05-be6a77decdbf.jpg" alt="Forerunner® 245" />
+<span>Forerunner® 245</span>
+</li>
+ <li>
+<img src="https://static.garmincdn.com/en/products/010-02120-20/v/cf-sm-3f7eab23-b754-4e70-aba1-518f230a57f7.jpg" alt="Forerunner® 245 Music" />
+<span>Forerunner® 245 Music</span>
+</li>
+<li>
+<img src="https://res.cloudinary.com/it-production/image/upload/v1651774681/Product_Images/en/products/010-02641-01/v/rf-sm.jpg" alt="Forerunner® 255" />
+<span>Forerunner® 255</span>
+</li>
+<li>
+<img src="https://res.cloudinary.com/it-production/image/upload/v1649774269/Product_Images/en/products/010-02641-20/v/pd-03-sm.jpg" alt="Forerunner® 255 Music" />
+<span>Forerunner® 255 Music</span>
+</li>
+<li>
+<img src="https://res.cloudinary.com/it-production/image/upload/v1648587635/Product_Images/en/products/010-02641-02/v/rf-sm-f774ed02-b5fc-43b9-8344-122f325fdfcf.jpg" alt="Forerunner® 255S" />
+<span>Forerunner® 255S</span>
+</li>
+<li>
+<img src="https://res.cloudinary.com/it-production/image/upload/v1649774367/Product_Images/en/products/010-02641-23/v/pd-03-sm.jpg" alt="Forerunner® 255S Music" />
+<span>Forerunner® 255S Music</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02562-00/v/pd-02-sm-6b38e8ac-6ca8-41d0-8ef4-a064dbba6a1f.jpg" alt="Forerunner® 55" />
+<span>Forerunner® 55, Forerunner® 158 </span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01863-10/v/cf-sm-3d860c6d-aec3-4fcd-8544-3ec55190a637.jpg" alt="Forerunner® 645" />
+<span>Forerunner® 645</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01863-30/v/cf-sm-cf7f4202-dce2-4c43-ab20-0d0ae12b35f3.jpg" alt="Forerunner® 645 Music" />
+<span>Forerunner® 645 Music</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02445-00/v/pd-01-sm-08be35f2-d0c8-4f90-8bba-79330826183f.jpg" alt="Forerunner® 745" />
+<span>Forerunner® 745</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01746-00/v/cf-sm.jpg" alt="Forerunner® 935" />
+<span>Forerunner® 935</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02063-00/v/cf-sm-538e211f-f991-4d7a-91f7-d25d4feb9a99.jpg" alt="Forerunner® 945" />
+<span>Forerunner® 945</span>
+</li>
+<li>
+<img src="https://res.cloudinary.com/it-production/image/upload/v1648587638/Product_Images/en/products/010-02638-10/v/rf-sm-02b8c734-88b3-4aef-94ec-8ef61dec4c3f.jpg" alt="Forerunner® 955" />
+<span>Forerunner® 955, Forerunner® 955 Solar</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01688-00/v/cf-sm.jpg" alt="fēnix® 5" />
+<span>fēnix® 5</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01988-10/v/cf-sm-c9091bfe-f1af-42b4-bd62-f3b45f46a15d.jpg" alt="fēnix® 5 Plus" />
+<span>fēnix® 5 Plus</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01685-00/v/cf-md.jpg" alt="fēnix® 5S" />
+<span>fēnix® 5S</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01987-00/v/cf-sm-58f98bed-90e7-4199-b4bc-925aec9690a7.jpg" alt="fēnix® 5S Plus" />
+<span>fēnix® 5S Plus</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01733-00/v/cf-md.jpg" alt="fēnix® 5X" />
+<span>fēnix® 5X</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01989-04/v/cf-sm-6dd29412-ddad-4f53-b62d-84eaaa06f258.jpg" alt="fēnix® 5X Plus" />
+<span>fēnix® 5X Plus</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02158-11/v/cf-sm-d9660dd6-f71d-4fe6-8682-2f6d80e12dff.jpg" alt="fēnix® 6" />
+<span>fēnix® 6</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02410-00/v/pd-04-sm-05fc6663-0a28-451a-aa9d-8595a8238209.jpg" alt="fēnix® 6 Dual Power" />
+<span>fēnix® 6 Dual Power</span>
+</li>
+<li>
+ <img src="https://static.garmincdn.com/en/products/010-02158-02/v/cf-sm-c561cac8-1a27-4bb1-8374-d99dc6afe57a.jpg" alt="fēnix® 6 Pro" />
+<span>fēnix® 6 Pro</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02410-10/v/rf-sm-f9532945-ccc5-430c-9bd7-8a0f50b7fb1d.jpg" alt="fēnix® 6 Pro Dual Power" />
+<span>fēnix® 6 Pro Dual Power</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02410-10/v/rf-sm-f9532945-ccc5-430c-9bd7-8a0f50b7fb1d.jpg" alt="fēnix® 6 Pro Solar" />
+<span>fēnix® 6 Pro Solar</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02410-00/v/pd-04-sm-05fc6663-0a28-451a-aa9d-8595a8238209.jpg" alt="fēnix® 6 Solar" />
+<span>fēnix® 6 Solar</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02159-00/v/cf-sm-880ca1fb-2302-4a53-bfda-962e357fd7f8.jpg" alt="fēnix® 6S" />
+<span>fēnix® 6S</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02409-00/g/rf-sm-af7a3331-c961-4cc9-83c0-2183baba6c2e.jpg" alt="fēnix® 6S Dual Power" />
+<span>fēnix® 6S Dual Power</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02159-14/v/cf-sm-6f0a6934-59f4-467c-8a6d-e74cb01d5ca6.jpg" alt="fēnix® 6S Pro" />
+<span>fēnix® 6S Pro</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02409-15/v/rf-sm-4d0f762d-bb36-4d24-b4fe-c897e246ab91.jpg" alt="fēnix® 6S Pro Dual Power" />
+<span>fēnix® 6S Pro Dual Power</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02409-15/v/rf-sm-4d0f762d-bb36-4d24-b4fe-c897e246ab91.jpg" alt="fēnix® 6S Pro Solar" />
+<span>fēnix® 6S Pro Solar</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02409-00/g/rf-sm-af7a3331-c961-4cc9-83c0-2183baba6c2e.jpg" alt="fēnix® 6S Solar" />
+<span>fēnix® 6S Solar</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02157-01/v/cf-sm-47dff6dd-beb7-42eb-9daa-3585c81c12ea.jpg" alt="fēnix® 6X Pro" />
+<span>fēnix® 6X Pro, fēnix® 6X Sapphire, tactix® Delta Sapphire, tactix® Delta Solar, tactix® Delta Solar:Ballisitcs Edition</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02540-00/v/rf-sm-79088307-fcf5-4dff-9eb9-3090f92db1bb.jpg" alt="fēnix® 7" />
+<span>fēnix® 7, quatix® 7</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02539-00/g/cf-sm-3ecb177b-cbcd-41dd-80e5-c954164a0955.jpg" alt="fēnix® 7S" />
+<span>fēnix® 7S</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02541-11/v/sc-03-sm-cd878574-7789-4323-a2f2-1acebcff5f36.jpg" alt="fēnix® 7X" />
+<span>fēnix® 7X, quatix® 7X – Solar Edition</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01957-00/v/cf-sm.jpg" alt="fēnix® Chronos" />
+<span>fēnix® Chronos</span>
+</li>
+<li>
+<img src="https://res.cloudinary.com/it-production/image/upload/v1664569372/Product_Images/en/products/010-02648-30/g/pd-04-sm.jpg" alt="MARQ™ (Gen 2)" />
+<span>MARQ™ (Gen 2)</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02006-26/g/cf-sm-f78826d3-cb9a-42f0-871c-ca80cc34c5a4.jpg" alt="MARQ™ Adventurer" />
+<span>MARQ™ Adventurer</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02006-15/g/cf-sm-0b73c33d-2df0-4d7e-b438-fd23d7c4390f.jpg" alt="MARQ™ Athlete" />
+<span>MARQ™ Athlete</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02006-03/g/cf-sm-614d7b98-9b70-4c8a-bec7-5ee303166767.jpg" alt="MARQ™ Aviator" />
+<span>MARQ™ Aviator</span>
+</li>
+<li>
+<img src="https://res.cloudinary.com/it-production/image/upload/v1660570440/Product_Images/en/products/010-02648-00/g/pd-04-sm.jpg" alt="MARQ™ Aviator (Gen 2)" />
+<span>MARQ™ Aviator (Gen 2)</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02006-06/g/cf-sm-04034f67-9380-4d27-b5aa-678600fb8b5f.jpg" alt="MARQ™ Captain" />
+<span>MARQ™ Captain</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02006-11/g/rf-sm-517ae5f4-8789-49b5-ad89-d2002ee9f8e3.jpg" alt="MARQ™ Commander" />
+<span>MARQ™ Commander</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02006-00/g/cf-sm-2f580581-696f-4e11-808b-c8acd963de46.jpg" alt="MARQ™ Driver" />
+<span>MARQ™ Driver</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02006-12/g/cf-sm-4d82de5c-a266-4cb0-abd1-a167526e2669.jpg" alt="MARQ™ Expedition" />
+<span>MARQ™ Expedition</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02394-00/g/pd-01-sm-fab01f49-dd1d-4d6e-8519-0d817c1ae674.jpg" alt="MARQ™ Golfer" />
+ <span>MARQ™ Golfer</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02173-52/v/cf-sm-86fc3396-766b-408e-9755-0c8fb5bbacc5.jpg" alt="Mercedes-Benz Venu®" />
+<span>Mercedes-Benz Venu®</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02430-22/v/cf-sm-c77f7728-90d5-4be1-a73b-b988ed45bcc1.png" alt="Mercedes-Benz Venu® 2" />
+<span>Mercedes-Benz Venu® 2</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02429-20/v/cf-sm-06f6a68d-b824-401d-b65e-dd33db5cb6cf.png" alt="Mercedes-Benz Venu® 2S" />
+<span>Mercedes-Benz Venu® 2S</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02158-90/g/rf-sm-c3bd24e1-838f-41a5-b84b-45f8c3bc33ec.jpg" alt="quatix® 6" />
+<span>quatix® 6</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02157-30/g/rf-sm-08137167-34a8-4a4b-8065-ab9f72810db0.jpg" alt="quatix® 6X" />
+<span>quatix® 6X, quatix® 6X Solar, quatix® 6X Dual Power</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02172-51/g/rf-sm-f55ac7b5-223c-4c58-ba98-8b6938b26bc0.jpg" alt="Rey™" />
+<span>Rey™</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02704-00/v/pd-01-sm-b5f086c9-db63-458e-b1c3-70076dff030d.jpg" alt="tactix® 7" />
+<span>tactix® 7, tactix® 7 – Pro Ballistics Edition, tactix® 7 – Pro Edition</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02173-12/v/cf-sm-9af674f3-640f-43f0-91df-117ed510ffcf.jpg" alt="Venu®" />
+<span>Venu®</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02430-10/v/cm-sm-26d3d922-fbce-45e1-9851-0fc7cd29f2c0.png" alt="Venu® 2" />
+<span>Venu® 2</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02496-10/v/pd-01-sm-8096ba5b-467d-406a-8207-6e2b8a609d2f.jpg" alt="Venu® 2 Plus" />
+<span>Venu® 2 Plus</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02429-10/v/cm-sm-9e11f013-57fa-4143-aeba-20804d29ec5c.png" alt="Venu® 2S" />
+<span>Venu® 2S</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02427-00/v/pd-03-sm-9fec0ed3-32bb-4284-aae2-5c0fe4a66c8a.jpg" alt="Venu® Sq." />
+<span>Venu® Sq.</span>
+</li>
+<li>
+<img src="https://res.cloudinary.com/it-production/image/upload/v1657202226/Product_Images/en/products/010-02701-00/v/pd-01-sm.jpg" alt="Venu® Sq. 2" />
+<span>Venu® Sq. 2</span>
+</li>
+<li>
+<img src="https://res.cloudinary.com/it-production/image/upload/v1657201253/Product_Images/en/products/010-02700-00/v/pd-03-sm.jpg" alt="Venu® Sq. 2 Music" />
+<span>Venu® Sq. 2 Music</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02426-00/v/pd-03-sm-3fe44d78-b9a2-4f69-9530-152a9e1b8daa.jpg" alt="Venu® Sq. Music" />
+<span>Venu® Sq. Music</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01769-00/v/cf-sm.jpg" alt="vívoactive® 3" />
+<span>vívoactive® 3</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-01985-03/v/cf-sm-cc4e0386-75e2-4c2f-8cc5-59cca47faed6.jpg" alt="vívoactive® 3 Music" />
+<span>vívoactive® 3 Music</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02174-12/v/cf-sm-ea8594d6-289b-4a61-b99c-0566e02a9b43.jpg" alt="vívoactive® 4" />
+<span>vívoactive® 4</span>
+</li>
+<li>
+<img src="https://static.garmincdn.com/en/products/010-02172-32/v/cf-sm-dd867152-525f-4622-a4f4-d7a09dcea813.jpg" alt="vívoactive® 4S" />
+<span>vívoactive® 4S</span>
+</li>
+</ul>
+</div>
+<div class="tab-pane" id="reviews">
+<div>
+<div class="clearfix">
+<ul class="nav nav-pills top-xs bottom-s">
+<li id="currentVersionPill"><a href="/en-US/apps/a707f466-7753-4882-be4a-e13eb75d19f9?tab=reviews&amp;displayCurrentVersion=true">Current Version</a></li>
+<li class="active" id="allVersionsPill"><a href="/en-US/apps/a707f466-7753-4882-be4a-e13eb75d19f9?tab=reviews&amp;displayCurrentVersion=false">All Versions</a></li>
+</ul>
+</div>
+</div>
+<div>
+<p>There are no reviews yet.</p>
+<p>
+<h6 class="write-review"><a title="Write a Review" href="/en-US/apps/a707f466-7753-4882-be4a-e13eb75d19f9/versions/dcb4af3b-08fb-42df-8c44-eb654f96f120/rateAndReview"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Write a Review</a>
+</h6>
+</p>
+</div>
+</div>
+<div>
+
+<div class="modal" id="modal-delete-app" tabindex="-1" role="dialog" aria-labelledby="modal-label-delete-app" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h4 class="modal-title" id="modal-label-delete-app">Remove</h4>
+</div>
+<div class="modal-body">
+<p>Are you sure you want to remove this app? You will lose all your reviews and download statistics.</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Don’t Remove</button>
+<a href="/en-US/developer/876cfd5e-4e42-48ca-8869-cd7c59235573/apps/a707f466-7753-4882-be4a-e13eb75d19f9/delete" class="btn btn-primary">Remove</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="modal" id="modal-contact-developer" tabindex="-1" role="dialog" aria-labelledby="modal-label-contact-developer" aria-hidden="true" style="display: none;">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h4 class="modal-title" id="modal-label-contact-developer">Contact Developer</h4>
+</div>
+<div class="modal-body">
+<div id="contactDeveloperError" class="alert alert-danger" style="display:none;">
+<p>Sorry, your message couldn’t be submitted because we’re having trouble communicating with our servers. Please try again later.</p>
+ </div>
+<p>The developer of this app will receive an email with the request you enter below. Your own email-address won&#39;t be exposed to the developer, but you can add it if you wish to get directly contacted by the developer.</p>
+<div class="form-group">
+<label for="contactDeveloperMessage">Message</label>
+<textarea class="form-control" id="contactDeveloperMessage" maxlength="5000" rows="5"></textarea>
+</div>
+<div id="modalContactDeveloperInvalidCharactersAlert" class="alert alert-danger" role="alert" style="display: none;">Illegal characters found: &lt;, &gt;.</div>
+<div class="form-group">
+<label for="contactDeveloperReplyToEmail">Your Email Address <small>(Optional)</small></label>
+
+<input type="text" class="form-control" id="contactDeveloperReplyToEmail" size="256" />
+</div>
+<div id="contactDeveloperReplyToEmailInvalid" class="alert alert-danger" style="display:none;">
+<p>The email address you&#39;ve entered is invalid.</p>
+</div>
+<div class="checkbox">
+<label><input id="contactDeveloperReplyToEmailCopyToSelf" type="checkbox" disabled="disabled" />&nbsp;Send copy to myself</label>
+</div>
+<div class="form-group">
+<label>The Name and Firmware Version of Your Device <small>(Optional)</small></label>
+<div class="row">
+<div class="col-sm-8">
+<input type="text" placeholder="Device" class="form-control" id="contactDeveloperDeviceName" size="512" maxlength="512" />
+</div>
+<div class="col-sm-4">
+<input type="text" placeholder="FW Version" class="form-control" id="contactDeveloperFirmwareVersion" size="64" maxlength="64" />
+</div>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<div class="form-group text-right">
+<span>Garmin will process this information only to send it to the developer.</span>
+</div>
+<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+<button type="button" id="contactDeveloperSendButton" class="btn btn-primary" disabled="disabled">Send</button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal" id="modal-contact-developer-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-label-contact-developer-confirm" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h4 class="modal-title" id="modal-label-contact-developer-confirm">Contact Developer</h4>
+</div>
+<div class="modal-body">
+<p>Thanks for sharing your thoughts. Your message was sent to the developer.</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+
+<div class="modal" id="modal-app-permissions" tabindex="-1" role="dialog" aria-labelledby="modal-label-app-permissions" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+ <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h4 class="modal-title" id="modal-label-app-permissions">Permissions</h4>
+</div>
+<div class="modal-body">
+<div>
+<p>This app requires access to:</p>
+<ul>
+<li>Send/receive information to/from the Internet</li>
+</ul>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+<button type="button" class="btn btn-primary">Allow</button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="footer" class="footer">
+<div class="container">
+<div class="footer-links">
+<small>
+<a href="https://developer.garmin.com/" target="_blank">Developers</a> &bull; <a class="" href="https://www.garmin.com/en-US/privacy/connect/" target="_blank">Privacy Policy</a> &bull; <a class="" href="https://www.garmin.com/terms" target="_blank">Terms of Use</a>
+<span>
+&bull;
+<div id="consent_blackbar" class="consentBar"></div>
+<span id='cookie_preferences' class="cookiePreference"></span>
+<script async="async" type="20e6adb5049dbf252f78e5e0-text/javascript" src='//consent.trustarc.com/notice?domain=connect.garmin.com&c=cookie_preferences&js=nj&noticeType=bb&gtm=1&text=true' crossorigin=""></script>
+</span>
+</small>
+</div>
+<div class="footer-copyright">
+<small id="copyright">Copyright &#169; 1996-2014 Garmin Ltd. or its subsidiaries</small>
+<script type="20e6adb5049dbf252f78e5e0-text/javascript">
+                          document.getElementById('copyright').innerHTML = document.getElementById('copyright').innerHTML.replace(/-(\d{4})/g,'-'+parseInt(new Date().getFullYear()));
+                    </script>
+<small class="text-muted pull-right">3.0.31, XX</small>
+</div>
+</div>
+</div>
+
+<script src="/js/jquery.linkify.min.js" type="20e6adb5049dbf252f78e5e0-text/javascript"></script>
+<div>
+<script src="/js/appDetails.js?artifact=3.0.31" type="20e6adb5049dbf252f78e5e0-text/javascript"></script>
+<script type="20e6adb5049dbf252f78e5e0-text/javascript">
+        var showModalDeviceSelect = false;
+        var showModalAcceptTermsOfUse = false;
+        var showModalDeviceRegister = false;
+        var showFlagInappropriateModal = false;
+        var showRemoveReviewModal = false;
+        var showRateAndReviewModal = false;
+        var showReviewReplyModal = false;
+        var showRemoveReviewReplyModal = false;
+        var redirectURL = null; //This URL is constructed in appsController->flaginappropriate functionality. Depending on app or review flag, the redirect URL is constructed.
+        var sendToDeviceURL = "\/en-US\/apps\/a707f466-7753-4882-be4a-e13eb75d19f9\/versions\/dcb4af3b-08fb-42df-8c44-eb654f96f120\/devices\/";
+        var acceptedTermsOfUse = false;
+        var acceptedTermsOfUseUrlPrefix = '/acceptTermsOfUse?redirectUrl=';
+        var reviewPageOptions = {"criteria":null,"ascending":false,"tab":null,"displayCurrentVersion":false};
+        var ajaxGlobalErrMsg = "Sorry, your message couldn\u2019t be submitted because we\u2019re having trouble communicating with our servers. Please try again later.";
+        var alreadyReviewedMsg = "You have already reviewed the latest version of this app.";
+        var showPermissionsModal = true;
+        var launchConnectAgentUrl = 'connectagent://launch?deviceId=';
+        var showContactDeveloperModal = false;
+        var contactDeveloperRedirectURL = null;
+        var reviewReplyRedirectURL = null;
+        var unlockRedirectUrl = null;
+
+        $(document).ready(function () {
+            onPageLoad_AppDetails();
+        });
+    </script>
+</div>
+<script type="20e6adb5049dbf252f78e5e0-text/javascript">
+            var locale = "en-US";
+            if (!locale) {
+                locale = 'en-US';
+            }
+            var authenticated = true;
+            var mustGrantPrivacyConsent = false;
+            var consentVersion = "15";
+            var grantPrivacyConsentUrlPrefix='/grantPrivacyConsent?consentVersion=' + consentVersion + '&redirectUrl=';
+            var loginURL = "\/login?service=\/en-US\/apps\/a707f466-7753-4882-be4a-e13eb75d19f9";
+            var logoutURL = "https:\/\/sso.garmin.com\/sso\/logout?service=http%3A%2F%2Fapps.garmin.com%2Fen-US%2Fapps%2Fa707f466-7753-4882-be4a-e13eb75d19f9";
+            var loginReqd = false;
+            var isDeveloper = true;
+            var currentUserId = "cdc2c15c-3ac3-46c6-99ec-a9c0f4a135e0";
+            $(document).ready(function() {
+                dynamicHeaderScripts();
+
+                if (mustGrantPrivacyConsent) {
+                    $('#modal-grant-privacy-consent :checkbox').bind('click', function() {
+                        $('#grantPrivacyConsentBtn').prop('disabled', !this.checked);
+                    });
+                    $("#grantPrivacyConsentSignOutBtn").bind('click', function() {
+                        window.location.href = $('#signOutLink a').attr('href');
+                    });
+                    $("#grantPrivacyConsentBtn").bind('click', function() {
+                        window.location.href = grantPrivacyConsentUrlPrefix + window.location.href;
+                    });
+                    $("#modal-grant-privacy-consent").modal('show');
+                }
+            });
+        </script>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="20e6adb5049dbf252f78e5e0-|49" defer=""></script></body>
+</html>

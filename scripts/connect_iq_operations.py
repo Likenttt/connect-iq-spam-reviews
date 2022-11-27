@@ -10,18 +10,49 @@ from bs4 import BeautifulSoup
 import json
 from datetime import datetime
 
+APP_HOMEPAGE_URL_CN_TEMPLATE = 'https://apps.garmin.cn/en-US/apps/{}'
+APP_HOMEPAGE_URL_COM_TEMPLATE = 'https://apps.garmin.com/en-US/apps/{}'
+
+
+def get_app_download_info(id, domain):
+    app_name_cn, downloads_cn, reviews_cnt_cn, average_rating_cn = '', 0, 0, 0
+    if domain == 'cn' or domain == 'all':
+        app_url = APP_HOMEPAGE_URL_CN_TEMPLATE.format(id)
+        initial_text = get_html_text_from_url(app_url)
+        app_name_cn, downloads_cn, reviews_cnt_cn, average_rating_cn = get_app_info_tuple_using_bs4(
+            html_text)
+    app_name_com, downloads_com, reviews_cnt_com, average_rating_com = '', 0, 0, 0
+    if domain == 'com' or domain == 'all':
+        app_url = APP_HOMEPAGE_URL_COM_TEMPLATE.format(id)
+        initial_text = get_html_text_from_url(app_url)
+        app_name_com, downloads_com, reviews_cnt_com, average_rating_com = get_app_info_tuple_using_bs4(
+            html_text)
+
+    total_downloads = int(downloads_cn) + int(downloads_com)
+    total_reviews = int(reviews_cnt_cn) + int(reviews_cnt_com)
+    average_rating = 0 if total_reviews == 0 else "{:.1f}".format(
+        (float(average_rating_cn) * int(reviews_cnt_cn) +
+         float(average_rating_com) * int(reviews_cnt_com))/total_reviews)
+    return app_name_com, total_downloads, total_reviews, average_rating
+
 
 def get_app_info_tuple_using_bs4(html_text):
     soup = BeautifulSoup(html_text, "html.parser")
     app_name = soup.find(
         'h1', attrs={'class': 'media-heading h2'}).get_text()
-    downloads = soup.find(
-        'span', attrs={'class': 'stat-adds'}).find('span', {'class': ''}).get_text()
-    reviews_cnt = soup.find('a', attrs={'id': 'activateReviewsTab'}).find(
+    downloads_tag = soup.find(
+        'span', attrs={'class': 'stat-adds'}).find('span', {'class': ''})
+    downloads = 0 if downloads_tag is None else downloads.get_text()
+
+    reviews_tag = soup.find('a', attrs={'id': 'activateReviewsTab'})
+    reviews_cnt = 0 if reviews_tag is None else reviews_tag.find(
         'span', attrs={'class': 'badge'}).get_text()
-    print('App:{} downloads:{} reviews count: {} '.format(
-        app_name, downloads, reviews_cnt))
-    return app_name, downloads, reviews_cnt
+
+    rating_tag = soup.find('span', attrs={'class': 'rating'})
+    average_rating = 0 if rating_tag is None else rating_tag.get('title')
+    print('App:{} downloads:{} reviews count: {} average_rating:{} '.format(
+        app_name, downloads, reviews_cnt, average_rating))
+    return app_name, downloads, reviews_cnt, average_rating
 
 
 def write_file(file, data):
@@ -33,10 +64,11 @@ def write_file(file, data):
 def get_multi_page_review_json_using_bs4(app_url):
     initial_html = get_html_text_from_url(app_url)
     pagination_url_template = '{}?tab=reviews&criteria=createdDate&ascending=false&displayCurrentVersion=false&start={}'
-    app_name, downloads, reviews_cnt = get_app_info_tuple_using_bs4(
+    app_name, downloads, reviews_cnt, average_rating = get_app_info_tuple_using_bs4(
         initial_html)
     if int(reviews_cnt) <= 25:
         print('-------------------Reviews is less than 25-------------------')
+        return
     reviews = get_single_page_review_json_using_bs4(
         initial_html)  # the first page
     page_cnt = int(int(reviews_cnt) / 25)
@@ -241,7 +273,7 @@ def get_html_text_from_url(url):
     res.encoding = 'utf-8'
 
     html_text = res.text
-    print('html text is \n {}'.format(html_text))
+    # print('html text is \n {}'.format(html_text))
     return html_text  # .decode('utf-8')
 
 
