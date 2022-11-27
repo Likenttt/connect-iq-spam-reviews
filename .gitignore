@@ -1,5 +1,5 @@
 ciqreviews/__pycache__
-ciqreviews/build
-ciqreviews/dist
-ciqreviews/ciqreviews.egg-info
+build
+dist
+ciqreviews.egg-info
 .vercel
