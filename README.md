@@ -26,12 +26,20 @@ Let‘s calculate the amount of spam reviews of certain app in connect iq store?
 
 ## 如何使用
 
+### 从源代码使用
+
 ```
 git clone https://github.com/Likenttt/connect-iq-spam-reviews
 
 pip install -r requirements.txt
 
 python ciqreviews/main.py https://apps.garmin.cn/en-US/apps/02d16e10-84dc-46aa-8edb-c42834c9b907
+```
+
+### 使用 pypi 包
+
+```
+pip install ciqreviews
 ```
 
 ## 输出示例
