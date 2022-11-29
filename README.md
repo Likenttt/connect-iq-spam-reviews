@@ -33,7 +33,7 @@ git clone https://github.com/Likenttt/connect-iq-spam-reviews
 
 pip install -r requirements.txt
 
-python ciqreviews/main.py https://apps.garmin.cn/en-US/apps/02d16e10-84dc-46aa-8edb-c42834c9b907
+python main.py https://apps.garmin.cn/en-US/apps/02d16e10-84dc-46aa-8edb-c42834c9b907
 ```
 
 ### 使用 pypi 包
@@ -47,7 +47,7 @@ pip install ciqreviews
 ### JumpJump 跳绳
 
 ```
-python ciqreviews/main.py https://apps.garmin.cn/zh-CN/apps/dc6ceca8-6ec6-49f2-b711-4ebc0d347177
+python main.py https://apps.garmin.cn/zh-CN/apps/dc6ceca8-6ec6-49f2-b711-4ebc0d347177
 
 ```
 
@@ -83,7 +83,7 @@ python ciqreviews/main.py https://apps.garmin.cn/zh-CN/apps/dc6ceca8-6ec6-49f2-b
 ### GRun 中文版
 
 ```
-python ciqreviews/main.py https://apps.garmin.cn/en-US/apps/02d16e10-84dc-46aa-8edb-c42834c9b907
+python main.py https://apps.garmin.cn/en-US/apps/02d16e10-84dc-46aa-8edb-c42834c9b907
 ```
 
 六万下载的免费应用, 几乎不主动运营评价体系, 全靠自觉, 一年多只有区区 200 自然评价
@@ -110,7 +110,7 @@ python ciqreviews/main.py https://apps.garmin.cn/en-US/apps/02d16e10-84dc-46aa-8
 ### Quatro 中文版
 
 ```
-python ciqreviews/main.py https://apps.garmin.cn/en-US/apps/a24870e3-b1ea-40a4-aea9-655cdf1d3ee2
+python main.py https://apps.garmin.cn/en-US/apps/a24870e3-b1ea-40a4-aea9-655cdf1d3ee2
 ```
 
 一个两万多下载的付费应用被刷出来了 1850 条评论;其中近百条是引流广告, 十几个小号枪手轮番上阵, 真有你的. 尸位素餐, 不干你干谁

@@ -1,14 +1,8 @@
 # -*- coding: UTF-8 -*-
 import argparse
-from connectiq import get_html_text_from_url, analyse_local_reviews_data, get_single_page_review_json_using_bs4, analyse_remote_reviews_data, analyse_local_reviews_data, get_multi_page_review_json_using_bs4
-
+from ciqreviews import get_html_text_from_url, analyse_local_reviews_data, get_single_page_review_json_using_bs4, analyse_remote_reviews_data, analyse_local_reviews_data, get_multi_page_review_json_using_bs4
 import os
 
-# clear my proxy temporarily
-os.environ["http_proxy"] = ''
-os.environ["https_proxy"] = ''
-print(os.environ["http_proxy"])
-print(os.environ["http_proxy"])
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
