@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import os
 import requests
+import operator
 
 from bs4 import BeautifulSoup
 import json
@@ -8,6 +9,10 @@ from datetime import datetime
 
 APP_HOMEPAGE_URL_CN_TEMPLATE = 'https://apps.garmin.cn/en-US/apps/{}'
 APP_HOMEPAGE_URL_COM_TEMPLATE = 'https://apps.garmin.com/en-US/apps/{}'
+
+
+DEVELOPER_HOMEPAGE_URL_COM_TEMPLATE = 'https://apps.garmin.com/en-US/developer/{}/apps'
+DEVELOPER_HOMEPAGE_URL_CN_TEMPLATE = 'https://apps.garmin.cn/en-US/developer/{}/apps'
 
 
 def get_app_download_info(id, domain):
@@ -29,7 +34,37 @@ def get_app_download_info(id, domain):
     average_rating = 0 if total_reviews == 0 else "{:.1f}".format(
         (float(average_rating_cn) * int(reviews_cnt_cn) +
          float(average_rating_com) * int(reviews_cnt_com))/total_reviews)
-    return str(app_name_com), str(total_downloads), str(total_reviews), str(average_rating)
+    return app_name_com, total_downloads, total_reviews, average_rating
+
+# Get Rating dict
+# {'中华黄历': 5.0, '青玉案(Obvious Plus中文版)': 5.0, 'Obvious中文版': 4.9, 'Soccer': 1.0, 'Answers': 0.0, 'Obvious': 0.0, 'Obvious Plus': 0.0}
+
+
+def get_app_rating(id, domain):
+    if domain == 'cn':
+        app_url = DEVELOPER_HOMEPAGE_URL_CN_TEMPLATE.format(id)
+        html_text = get_html_text_from_url(app_url)
+        app_rating_dict = get_developer_all_app_rating_rank_dict_using_bs4(
+            html_text)
+        return app_rating_dict
+    app_url = DEVELOPER_HOMEPAGE_URL_COM_TEMPLATE.format(id)
+    html_text = get_html_text_from_url(app_url)
+    app_rating_dict = get_developer_all_app_rating_rank_dict_using_bs4(
+        html_text)
+    return app_rating_dict
+
+
+def get_user_app_download_info(developerid, domain):
+    developer_homepage_url = DEVELOPER_HOMEPAGE_URL_COM_TEMPLATE.format(
+        developerid)
+    html_text = get_html_text_from_url(developer_homepage_url)
+    developer_name = get_developer_name(html_text)
+    app_dict = get_developer_all_app_info_tuple_using_bs4(
+        html_text, domain)
+    total_downloads = 0
+    for app in app_dict.values():
+        total_downloads += app['total_downloads']
+    return developer_name, total_downloads, app_dict
 
 
 def get_app_info_tuple_using_bs4(html_text):
@@ -49,6 +84,63 @@ def get_app_info_tuple_using_bs4(html_text):
     print('App:{} downloads:{} reviews count: {} average_rating:{} '.format(
         app_name, downloads, reviews_cnt, average_rating))
     return app_name, downloads, reviews_cnt, average_rating
+
+# Rank the app by rating
+
+
+def get_developer_name(html_text):
+    soup = BeautifulSoup(html_text, "html.parser")
+    developer_name = soup.find(
+        'a', attrs={'class': 'developer-name truncate developer-name-desktop'}).get_text()
+    return developer_name
+
+
+def get_developer_all_app_rating_rank_dict_using_bs4(html_text):
+    soup = BeautifulSoup(html_text, "html.parser")
+    all_apps_tags = soup.find_all(
+        'div', attrs={'class': 'media-body'})
+
+    app_rating_dict = {}
+    for app_tag in all_apps_tags:
+        appname = app_tag.find(
+            'h3', attrs={'class': 'h5 media-heading truncate'}).get_text()
+        rating = app_tag.find('span', attrs={'class': 'rating'}).get('title')
+        app_rating_dict[appname] = float(rating)
+
+    sorted_app_rating_dict = sorted(
+        app_rating_dict.items(), key=lambda x: x[1], reverse=True)
+    converted_sorted_app_rating_dict = dict(sorted_app_rating_dict)
+    print('all app ratings:{}'.format(converted_sorted_app_rating_dict))
+    return converted_sorted_app_rating_dict
+
+
+def get_developer_all_app_info_tuple_using_bs4(html_text, domain):
+    soup = BeautifulSoup(html_text, "html.parser")
+    all_apps_link_tags = soup.find_all(
+        'a', attrs={'class': 'aspect'})
+    app_dict = {}
+    download_dict = {}
+    for app_link_tag in all_apps_link_tags:
+        link_part2 = app_link_tag.get('href')
+        appid = link_part2.split('/')[-1]
+        app_name, total_downloads, total_reviews, average_rating = get_app_download_info(
+            appid, domain)
+
+        download_dict[appid] = total_downloads
+        app_dict[appid] = {
+            'app_name': app_name,
+            'total_downloads': total_downloads,
+            'total_reviews': total_reviews,
+            'average_rating': average_rating
+        }
+
+    download_dict_list = sorted(
+        download_dict.items(), key=lambda x: x[1], reverse=True)
+    sort_download_dict = dict(download_dict_list)
+
+    for appid, v in sort_download_dict.items():
+        sort_download_dict[appid] = app_dict[appid]
+    return sort_download_dict
 
 
 def write_file(file, data):

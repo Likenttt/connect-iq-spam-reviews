@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.1.5'
+VERSION = '0.1.6'
 DESCRIPTION = 'This package is used to analyse the downloads,reviews,ratings of some Garmin Connect IQ App'
 LONG_DESCRIPTION = 'Using Beautifulsoup4 to find the download and reviews statistics of some app'
 
